@@ -41,14 +41,14 @@ export ROS_PACKAGE_PATH=/home/uthira/mer_lab/ros_ws/src/franka_ros/panda_moveit_
 Note that the above instructions are no substitute for actually install ros and setting up rosdep, please first follow the instructions at 'http://wiki.ros.org/melodic/Installation/Ubuntu' (or whatever your ros distribution and linux distro combination happen to be).
 
 
-###YCB dataset models 
+## YCB dataset models 
 1. ensure all ycb objects pcd files and sdf files are loaded in ros_ws/src/projects/active_vision/models/ycbAV
 else
 download from link
 
 please make sure to change the path inside sdf file.  
 
-###
+## Imitation Learning 
 simulation training for Imitation learning
 install the necessary python venv version
 1. setup python3 virtual environment python python3 -m venv ~/Envs/AVRL
