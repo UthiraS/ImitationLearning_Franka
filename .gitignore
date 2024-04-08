@@ -1,0 +1,152 @@
+# Backup files
+*~
+\#*
+\.#*
+
+# Computer-generated files
+install
+build
+devel
+
+# Catkin-specific files
+.catkin_workspace
+
+# All CMakeLists.txt are allowed except the root (symlinked)
+/ros_ws/src/CMakeLists.txt
+/ros_ws/CMakeLists.txt
+/CMakeLists.txt
+
+#Matlab Results
+Matlab/piercing_sim/Results
+
+#build and devel files
+ros_ws/build/
+ros_ws/devel/
+
+#just for avnish
+avn_data/pcl_features/
+avn_data/Active_Vision_Paper_Reading_List
+avn_data/dataset
+avn_data/
+
+ros_ws/src/projects/active_vision/scripts/continousDdpg/wandb/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/model/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/model_steps_punished/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/__pycache__/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/model_rew_1/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/model_rew_2/
+
+
+
+
+#vscode files
+ros_ws/.vscode/
+ros_ws/.vscode/*
+ros_ws/.vscode
+\.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+#Moveit Hand Eye Calibration Plugin
+ros_ws/src/moveit_calibration-master/
+
+#active vision data
+
+ros_ws/src/projects/active_vision/data/*
+ros_ws/src/projects/active_vision/QLearning/
+ros_ws/src/projects/active_vision/models/ycbAV/*
+!ros_ws/src/projects/active_vision/models/ycbAV/ycbObjSetup.py
+!ros_ws/src/projects/active_vision/models/ycbAV/object_ids.txt
+!ros_ws/src/projects/active_vision/models/ycbAV/ReadMe.txt
+ros_ws/src/projects/active_vision/dataCollected/storage/*
+ros_ws/src/projects/active_vision/dataCollected/storage0/*
+!ros_ws/src/projects/active_vision/dataCollected/storage/ReadMe.txt
+ros_ws/src/projects/active_vision/dataCollected/testData/*
+!ros_ws/src/projects/active_vision/dataCollected/testData/ReadMe.txt
+ros_ws/src/projects/active_vision/dataCollected/trainingData/*
+!ros_ws/src/projects/active_vision/dataCollected/trainingData/ReadMe.txt
+ros_ws/src/projects/active_vision/scripts/__pycache__
+ros_ws/src/projects/active_vision/model/*
+ros_ws/src/projects/active_vision/models/*
+
+#Mujoco and Robosuite data
+/mujoco/insertion/__pycache__
+/mujoco/insertion/*/__pycache__
+/mujoco/insertion/*/*/__pycache__
+/mujoco/insertion/*/*/*/__pycache__
+/mujoco/insertion/*/*/*/*/__pycache__
+.lia.cache
+
+#wandb
+ros_ws/src/projects/active_vision/scripts/wandb/*
+
+#Region based planning data for dexterous manipulation
+ros_ws/src/projects/dexterous_in_hand_manip/region_based_planning/scripts/__pycache__
+ros_ws/src/projects/dexterous_in_hand_manip/region_based_planning/scripts/*.pyc
+ros_ws/src/projects/dexterous_in_hand_manip/region_based_planning/output_plans/plan_*
+ros_ws/screenlog.0
+ros_ws/src/projects/active_vision/scripts/screenlog.0
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/*.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/trainingPolicy.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/policyTester/VFH_object_2.csv
+ros_ws/src/projects/active_vision/scripts/policyTester/HAF_object_2.csv
+ros_ws/src/projects/active_vision/scripts/policyTester/__pycache__/toolViewPointCalc.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/policyTester/__pycache__/summarizerDataCollected.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/trainingPolicy.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/toolViewPointCalc.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/toolViewPointCalc.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/trainingPolicy.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/trainingPolicy.pyc
+ros_ws/src/projects/active_vision/scripts/screenlog.0
+ros_ws/src/projects/active_vision/models/sample.pcd
+ros_ws/src/projects/active_vision/dataCollected/results
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/load_data.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/trainingPolicy.cpython-38.pyc
+ros_ws/src/projects/active_vision/scripts/dataCollector/screenlog.0
+ros_ws/src/projects/active_vision/scripts/screenlog.0
+ros_ws/src/projects/active_vision/dataCollected/storage/ReadMe.txt
+ros_ws/src/projects/active_vision/scripts/PCA/__pycache__/load_data.cpython-38.pyc
+pointnet2-tensorflow2/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/wandb/
+ros_ws/src/projects/active_vision/scripts/continousDdpg/model/
+ros_ws/003_cracker_box_sphere.csv
+ros_ws/src/projects/active_vision/scripts/continousDdpg/wandb/*
+ros_ws/src/projects/active_vision/scripts/continousDdpg/wandb/latest-run
+
+
+#Raw data/logging
+*.pcd
+*.obj
+*.obj.mtl
+*.ply
+*.png
+*.log
+*.pyc
+*.csv
+*.txt
+*.json
+*.~lock.*
+*.zip
+*.dot
+ros_ws/src/projects/active_vision/scripts/RL/runs/*
+ros_ws/src/projects/active_vision/scripts/RL/wandb/*
+ros_ws/src/projects/active_vision/scripts/runs/*
+ros_ws/env_log.json.bak
+ros_ws/trial
+ros_ws/dev/stdout
+ros_ws/src/projects/active_vision/scripts/models/*
+ros_ws/src/projects/active_vision/src/outfile.ps
+ros_ws/src/projects/active_vision/src/screenlog.0
+ros_ws/src/projects/active_vision/src/temp
+ros_ws/src/projects/active_vision/src/temp.cpp
+ros_ws/src/projects/active_vision/dataCollected/*
+ros_ws/src/projects/active_vision/scripts/RL/screenlog.0
+ros_ws/src/projects/active_vision/scripts/RL/models/*
+
+
+##rlaxed IK
+ros_ws/nano.save

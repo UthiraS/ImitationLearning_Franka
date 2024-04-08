@@ -1,0 +1,6 @@
+geometry_msgs/Point[] points
+std_msgs/Float64MultiArray viz
+int64 curr_direction
+---
+float64 optimal_distance
+int64 next_direction

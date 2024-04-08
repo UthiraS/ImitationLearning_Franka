@@ -1,0 +1,6 @@
+float64 direction
+---
+std_msgs/Float32MultiArray stateVec
+std_msgs/Float64MultiArray viz
+bool done
+int64 steps

@@ -1,0 +1,15 @@
+program: Q_controller4.py
+method: bayes
+metric:
+  name: Evaluation_score
+  goal: maximize
+parameters:
+  learning_rate_actor:
+    min: 0.0001
+    max: 0.1
+  learning_rate_critic:
+    min: 0.0001
+    max: 0.1
+  batch_size:
+    min: 64
+    max: 256

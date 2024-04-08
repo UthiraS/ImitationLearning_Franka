@@ -1,0 +1,57 @@
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="paused" value="true"/>
+      <arg name="use_sim_time" value="true"/>
+      <arg name="gui" value="true"/>
+      <arg name="headless" value="false"/> 		<!-- Inert - see gazebo_ros_pkgs issue #491 -->
+      <arg name="recording" value="false"/>
+      <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Spawn a robot into Gazebo -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find encoderless_vs)/urdf/vsbot.xacro"/>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model vsbot -param robot_description
+      -J joint1 -0.52
+      -J joint2 0.52
+      -unpause" />
+      
+    
+    <!-- Launch controller for robot joints -->
+    <rosparam file="$(find encoderless_vs)/config/config.yaml" command="load"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner_stopped" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/vsbot" args=
+      "--stopped joint1_position_controller
+      joint2_position_controller"/>
+
+    <!-- load & start the position controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/vsbot" args=
+      "joint_state_controller
+       joint1_velocity_controller
+       joint2_velocity_controller"/>
+
+    <!-- convert joint states to TF transforms -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" respawn="false" output="screen">
+    	<remap from="/joint_states" to="/vsbot/joint_states" />
+    </node> 
+    
+    <node name="image_publisher_node" pkg="encoderless_vs" type="vsbot_image_sub.py" output="screen" /> 
+    <!--<node name="controller_node" pkg="encoderless_vs" type="vsbot_joint_controller.py" output="screen" /> -->
+    <node name="marker_detection_node" pkg="encoderless_vs" type="vsbot_marker_detection.py" output="screen" /> 
+    
+     
+    <!--<node name="skeletonization_node" pkg="encoderless_vs" type="vsbot_img_cap_skel_spline_img.py" output="screen" /> --> <!--# Spline Node for further use -->
+    
+    <node name="visual_servoing_node" pkg="encoderless_vs" type="vsbot_visual_servoing.py" output="screen" /> # Visual Servoing Algo
+    <node name="error_calculator_node" pkg="encoderless_vs" type="vsbot_marker_center_error.py" output="screen" />
+    <node name="trajectory_to_goal_node" pkg="encoderless_vs" type="vsbot_marker_center_traj.py" output="screen" /> 
+    
+    
+    <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    	<remap from="image" to="skel_viewer" />
+    </node>   
+    
+
+</launch>
+

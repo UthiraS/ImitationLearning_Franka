@@ -1,0 +1,606 @@
+# # Parameters with for the objects used
+
+objectsInfo: {
+  nObjects: 71,
+  ID1: {
+    Filename: YCB002,
+    Description: 002_master_chef_can,
+    nPoses: 1,
+    Pose1: [0.07,0.00,0.00,0,359],
+  },
+  ID2: {
+    Filename: YCB003,
+    Description: 003_cracker_box,
+    nPoses: 1,
+    Pose1: [0.106,0.00,0.00,0,359],
+  },
+  ID3: {
+    Filename: YCB004,
+    Description: 004_sugar_box,
+    nPoses: 1,
+    Pose1: [0.077,0.00,0.00,0,359],
+  },
+  ID4: {
+    Filename: YCB005,
+    Description: 005_tomato_soup_can,
+    nPoses: 1,
+    Pose1: [0.05,0.00,0.00,0,359],
+  },
+  ID5: {
+    Filename: YCB006,
+    Description: 006_mustard_bottle,
+    nPoses: 1,
+    Pose1: [0.079,0.00,0.00,0,359],
+  },
+  ID6: {
+    Filename: YCB007,
+    Description: 007_tuna_fish_can,
+    nPoses: 1,
+    Pose1: [0.016,0.00,0.00,0,359], 
+  },
+  ID7: {
+    Filename: YCB008,
+    Description: 008_pudding_box,
+    nPoses: 1,
+    Pose1: [0.056,-1.468,1.0788,0,359],
+  },
+  ID8: {
+    Filename: YCB009,
+    Description: 009_gelatin_box,
+    nPoses: 1,
+    Pose1: [0.047,1.594,0.253,0,359], 
+  },
+  ID9: {
+    Filename: YCB010,
+    Description: 010_potted_meat_can,
+    nPoses: 1,
+    Pose1: [0.041,0.0,0.0,0,359],
+  },
+  ID10: {
+    Filename: YCB011,
+    Description: 011_banana,
+    nPoses: 1,
+    Pose1: [0.020,0.0,0.0,0,359], #Working.
+  },
+  ID11: {
+    Filename: YCB012,
+    Description: 012_strawberry,
+    nPoses: 1,
+    Pose1: [0.023,0.0,0.0,0,359],
+  },
+  ID12: {
+    Filename: YCB013,
+    Description: 013_apple,
+    nPoses: 1,
+    Pose1: [0.04,0.0,0.0,0,359],
+  },
+  ID13: {
+    Filename: YCB014,
+    Description: 014_lemon,
+    nPoses: 1,
+    Pose1: [0.026,0.0,0.0,0,359],
+  },
+  ID14: {
+    Filename: YCB015,
+    Description: 015_peach,
+    nPoses: 1,
+    Pose1: [0.026,0.0,0.0,0,359],
+  },
+  ID15: {
+    Filename: YCB016,
+    Description: 016_pear,
+    nPoses: 1,
+    Pose1: [0.030,0.0,0.0,0,359],
+  },
+  ID16: {
+    Filename: YCB017,
+    Description: 017_orange,
+    nPoses: 1,
+    Pose1: [0.035,0.0,0.0,0,359],
+  },
+  ID17: {
+    Filename: YCB018,
+    Description: 018_plum,
+    nPoses: 1,
+    Pose1: [0.026,0.0,0.0,0,359],
+  },
+  ID18: {
+    Filename: YCB019,
+    Description: 019_pitcher_base,
+    nPoses: 1,
+    Pose1: [0.126,0.0,0.0,0,359],
+  },
+  ID19: {
+    Filename: YCB021,
+    Description: 021_bleach_cleanser,
+    nPoses: 1,
+    Pose1: [0.1,0.0,0.0,0,359],
+  },
+  ID20: {
+    Filename: YCB024,
+    Description: 024_bowl,
+    nPoses: 1,
+    Pose1: [0.028,0.0,0.0,0,359], #Working.
+  },
+  ID21: {
+    Filename: YCB025,
+    Description: 025_mug,
+    nPoses: 1,
+    Pose1: [0.028,0.0,0.0,0,359],
+  },
+  ID22: {
+    Filename: YCB026,
+    Description: 026_sponge,
+    nPoses: 1,
+    Pose1: [0.009,3.126,0.0,0,359], #Only partially corporeal when it spawns.
+  },
+  ID23: {
+    Filename: YCB029,
+    Description: 029_plate,
+    nPoses: 1,
+    Pose1: [0.012,0.0,0.0,0,359],
+  },
+  ID24: {
+    Filename: YCB030,
+    Description: 030_fork,
+    nPoses: 1,
+    Pose1: [0.008,0.0,0.0,0,359],
+  },
+  ID25: {
+    Filename: YCB031,
+    Description: 031_spoon,
+    nPoses: 1,
+    Pose1: [0.010,0.0,0.0,0,359],
+  },
+  ID26: {
+    Filename: YCB032,
+    Description: 032_knife,
+    nPoses: 1,
+    Pose1: [0.008,0.0,0.0,0,359], #NW
+  },
+  ID27: {
+    Filename: YCB033,
+    Description: 033_spatula,
+    nPoses: 1,
+    Pose1: [0.013,0.0,0.0,0,359], #NW
+  },
+  ID28: {
+    Filename: YCB035,
+    Description: 035_power_drill,
+    nPoses: 1,
+    Pose1: [0.11,1.596,0.026,0,359],
+  },
+  ID29: {
+    Filename: YCB036,
+    Description: 036_wood_block,
+    nPoses: 1,
+    Pose1: [0.045,1.596,-0.156,0,359], #NW
+  },
+  ID30: {
+    Filename: YCB037,
+    Description: 037_scissors,
+    nPoses: 1,
+    Pose1: [0.008,0.002,-0.011,0,359],
+  },
+  ID31: {
+    Filename: YCB040,
+    Description: 040_large_marker,
+    nPoses: 1,
+    Pose1: [0.058,1.570,0.0,0,359],
+  },
+  ID32: {
+    Filename: YCB042,
+    Description: 042_adjustable_wrench,
+    nPoses: 1,
+    Pose1: [0.006,0.0,0.0,0,359],
+  },
+  ID33: {
+    Filename: YCB043,
+    Description: 043_phillips_screwdriver,
+    nPoses: 1,
+    Pose1: [0.017,0.0,0.0,0,359],
+  },
+  ID34: {
+    Filename: YCB044,
+    Description: 044_flat_screwdriver,
+    nPoses: 1,
+    Pose1: [0.017,0.0,0.0,0,359],
+  },
+  ID35: {
+    Filename: YCB048,
+    Description: 048_hammer,
+    nPoses: 1,
+    Pose1: [0.016,0.0,0.0,0,359],
+  },
+  ID36: {
+    Filename: YCB050,
+    Description: 050_medium_clamp,
+    nPoses: 1,
+    Pose1: [0.013,0.0,0.0,0,359],
+  },
+  ID37: {
+    Filename: YCB051,
+    Description: 051_large_clamp,
+    nPoses: 1,
+    Pose1: [0.018,0.0,0.0,0,359],
+  },
+  ID38: {
+    Filename: YCB052,
+    Description: 052_extra_large_clamp,
+    nPoses: 1,
+    Pose1: [0.019,0.0,0.0,0,359],
+  },
+  ID39: {
+    Filename: YCB053,
+    Description: 053_mini_soccer_ball,
+    nPoses: 1,
+    Pose1: [0.062,0.0,0.0,0,359],
+  },
+  ID40: {
+    Filename: YCB054,
+    Description: 054_softball,
+    nPoses: 1,
+    Pose1: [0.040,0.0,0.0,0,359],
+  },
+  ID41: {
+    Filename: YCB055,
+    Description: 055_baseball,
+    nPoses: 1,
+    Pose1: [0.036,0.0,0.0,0,359],
+  },
+  ID42: {
+    Filename: YCB056,
+    Description: 056_tennis_ball,
+    nPoses: 1,
+    Pose1: [0.033,0.0,0.0,0,359],
+  },
+  ID43: {
+    Filename: YCB057,
+    Description: 057_racquetball,
+    nPoses: 1,
+    Pose1: [0.029,0.0,0.0,0,359],
+  },
+  ID44: {
+    Filename: YCB058,
+    Description: 058_golf_ball,
+    nPoses: 1,
+    Pose1: [0.022,0.0,0.0,0,359], #Minor rolling I can't get rid of
+  },
+  ID45: {
+    Filename: YCB059,
+    Description: 059_chain,
+    nPoses: 1,
+    Pose1: [0.009,0.0,0.0,0,359],
+  },
+  ID46: {
+    Filename: YCB061,
+    Description: 061_foam_brick,
+    nPoses: 1,
+    Pose1: [0.025,0.0,0.0,0,359],
+  },
+  ID47: {
+    Filename: YCB062,
+    Description: 062_dice,
+    nPoses: 1,
+    Pose1: [0.009,0.0,0.0,0,359],
+  },
+  ID48: {
+    Filename: YCB063-a,
+    Description: 063-a_marbles,
+    nPoses: 1,
+    Pose1: [0.023,0.0,0.0,0,359], #Minor settling
+  },
+  ID49: {
+    Filename: YCB065-a,
+    Description: 065-a_cups,
+    nPoses: 1,
+    Pose1: [0.029,0.0,0.0,0,359], 
+  },
+  ID50: {
+    Filename: YCB070-a,
+    Description: 070-a_colored_wood_blocks,
+    nPoses: 1,
+    Pose1: [0.074,0.0,0.0,0,359], #Minor settling
+  },
+  ID51: {
+    Filename: YCB072-a,
+    Description: 072-a_toy_airplane,
+    nPoses: 1,
+    Pose1: [0.092,0.0,0.0,0,359],
+  },
+  ID52: {
+    Filename: YCB073-a,
+    Description: 073-a_lego_duplo,
+    nPoses: 1,
+    Pose1: [0.013,0.0,0.0,0,359],
+  },
+  ID53: {
+    Filename: YCB077,
+    Description: 077_rubiks_cube,
+    nPoses: 1,
+    Pose1: [0.029,0.0,0.0,0,359],
+  },
+  ID54: {
+    Filename: GDS001,
+    Description: Android_Figure_Chrome,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID55: {
+    Filename: GDS002,
+    Description: Crayola_Crayons_Washable_24_crayons,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID56: {
+    Filename: GDS003,
+    Description: Cream_Tieks_Italian_Leather_Ballet_Flats,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID57: {
+    Filename: GDS004,
+    Description: AllergenFree_JarroDophilus,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID58: {
+    Filename: GDS005,
+    Description: DIM_CDG,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID59: {
+    Filename: GDS006,
+    Description: Baby_Elements_Stacking_Cups,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID60: {
+    Filename: GDS007,
+    Description: Big_Dot_Aqua_Pencil_Case,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID61: {
+    Filename: GDS008,
+    Description: SAPPHIRE_R7_260X_OC,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID62: {
+    Filename: GDS009,
+    Description: Shurtape_Tape_Purple_CP28,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID63: {
+    Filename: GDS010,
+    Description: Great_Dinos_Triceratops_Toy,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID64: {
+    Filename: GDS011,
+    Description: Vtech_Stack_Sing_Rings_636_Months,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID65: {
+    Filename: GDS012,
+    Description: Weisshai_Great_White_Shark,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID66: {
+    Filename: GDS013,
+    Description: Perricone_MD_Face_Finishing_Moisturizer,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID67: {
+    Filename: GDS014,
+    Description: Ecoforms_Pot_Nova_6_Turquoise,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID68: {
+    Filename: GDS015,
+    Description: PINEAPPLE_MARACA_6_PCSSET,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID69: {
+    Filename: GDS016,
+    Description: Ecoforms_Planter_Pot_QP6Ebony,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID70: {
+    Filename: GDS017,
+    Description: Schleich_Bald_Eagle,
+    nPoses: 1,
+    Pose1: [0.0,0.0,0.0,0,359],
+  },
+  ID71: {
+    Filename: drillAV,
+    Description: Cordless Drill,
+    nPoses: 7,
+    Pose1: [0.012,0.000,0.000,0,359],
+    Pose2: [0.084,1.459,-0.751,0,359],
+    Pose3: [0.082,1.398,-0.014,0,359],
+    Pose4: [0.040,0.280,-1.040,0,359],
+    Pose5: [0.249,2.860,-0.400,0,359],
+    Pose6: [0.068,-1.287,-0.477,0,359],
+    Pose7: [0.048,-1.570,1.480,0,359],
+  }
+}
+
+  #************************************
+  # ID20: {   #Unstable, broken mesh.
+  #   Filename: YCB022,
+  #   Description: 022_windex_bottle,
+  #   nPoses: 1,
+  #   Pose1: [0.03,0.0,0.0,0,359],
+  # },
+  # ID24: {     #Highly suspect mesh
+  #   Filename: YCB027,
+  #   Description: 027_skillet,
+  #   nPoses: 1,
+  #   Pose1: [0.043,0.0,0.0,0,359],
+  # },
+  # ID25: {
+  #   Filename: YCB028, #Broken Mesh
+  #   Description: 028_skillet_lid,
+  #   nPoses: 1,
+  #   Pose1: [0.024,0.0,0.0,0,359],
+  # },
+  # ID34: {   #Broken mesh
+  #   Filename: YCB038,
+  #   Description: 038_padlock,
+  #   nPoses: 1,
+  #   Pose1: [0.11,1.596,0.026,0,359],
+  # },
+  # Also removed: 049, 071-a
+# }
+
+# Parameters with for the objects used
+
+# objectsInfo: {
+#   nObjects: 20,
+#   ID1: {
+#     Filename: prismAV6x6x6,
+#     Description: Prism 6x6x6,
+#     nPoses: 1,
+#     Pose1: [0.050,0.000,0.000,0,89],
+#   },
+#   ID2: {
+#     Filename: prismAV10x8x4,
+#     Description: Prism 10x8x4,
+#     nPoses: 2,
+#     Pose1: [0.060,1.570,0.000,0,179],
+#     Pose2: [0.070,1.570,1.570,0,179],
+#   },
+#   ID3: {
+#     Filename: prismAV20x6x5,
+#     Description: Prism 20x6x5,
+#     nPoses: 3,
+#     Pose1: [0.040,0.000,0.000,0,179],
+#     Pose2: [0.050,1.570,0.000,0,179],
+#     Pose3: [0.120,1.570,1.570,0,179],
+#   },
+#   ID4: {
+#     Filename: bowl2AV,
+#     Description: Bowl,
+#     nPoses: 1,
+#     Pose1: [0.015,0.000,0.000,0,1],
+#   },
+#   ID5: {
+#     Filename: drillAV,
+#     Description: Cordless Drill,
+#     nPoses: 7,
+#     Pose1: [0.012,0.000,0.000,0,359],
+#     Pose2: [0.084,1.459,-0.751,0,359],
+#     Pose3: [0.082,1.398,-0.014,0,359],
+#     Pose4: [0.040,0.280,-1.040,0,359],
+#     Pose5: [0.249,2.860,-0.400,0,359],
+#     Pose6: [0.068,-1.287,-0.477,0,359],
+#     Pose7: [0.048,-1.570,1.480,0,359],
+#   },
+#   ID6: {
+#     Filename: handleAV,
+#     Description: Door Handle,
+#     nPoses: 1,
+#     Pose1: [0.015,0.000,0.000,0,359],
+#   },
+#   ID7: {
+#     Filename: gasketAV,
+#     Description: Gasket,
+#     nPoses: 1,
+#     Pose1: [0.015,0.000,0.000,0,179],
+#   },
+#   ID8: {
+#     Filename: cinderBlockAV,
+#     Description: Cinder Block,
+#     nPoses: 1,
+#     Pose1: [0.015,0.000,0.000,0,89],
+#   },
+#   ID9: {
+#     Filename: cupAV,
+#     Description: Tea Cup,
+#     nPoses: 1,
+#     Pose1: [0.015,0.000,0.000,0,359],
+#   },
+#   ID10: {
+#     Filename: sprayFlaskAV,
+#     Description: Spray Flask,
+#     nPoses: 1,
+#     Pose1: [0.015,0.00,0.00,0,359],
+#   },
+#   ID11: {
+#     Filename: YCB009,
+#     Description: 009_gelatin_box,
+#     nPoses: 1,
+#     Pose1: [0.047,1.594,0.253,0,359], #Start dup
+#   },
+#   ID12: {
+#     Filename: YCB055,
+#     Description: 055_baseball,
+#     nPoses: 1,
+#     Pose1: [0.036,0.0,0.0,0,89],
+#   },
+#   ID13: {
+#     Filename: YCB072-a,
+#     Description: 072-a_toy_airplane,
+#     nPoses: 1,
+#     Pose1: [0.092,0.0,0.0,0,359],
+#   },
+#   ID14: {
+#     Filename: YCB010,
+#     Description: 010_potted_meat_can,
+#     nPoses: 1,
+#     Pose1: [0.041,0.0,0.0,0,359],
+#   },
+#   ID15: {
+#     Filename: YCB003,
+#     Description: 003_cracker_box,
+#     nPoses: 1,
+#     Pose1: [0.106,0.00,0.00,0,359],
+#   },
+#   ID16: {
+#     Filename: YCB035,
+#     Description: 035_power_drill,
+#     nPoses: 1,
+#     Pose1: [0.11,1.596,0.026,0,359],
+#   },
+#   ID17: {
+#     Filename: YCB005,
+#     Description: 005_tomato_soup_can,
+#     nPoses: 1,
+#     Pose1: [0.05,0.00,0.00,0,359],
+#   },
+#   ID18: {
+#     Filename: YCB006,
+#     Description: 006_mustard_bottle,
+#     nPoses: 1,
+#     Pose1: [0.079,0.00,0.00,0,359],
+#   },
+#   ID19: {
+#     Filename: YCB021,
+#     Description: 021_bleach_cleanser,
+#     nPoses: 1,
+#     Pose1: [0.1,0.0,0.0,0,359],
+#   },
+#   # ID20: {
+#   #   Filename: YCB025,
+#   #   Description: 025_mug,
+#   #   nPoses: 1,
+#   #   Pose1: [0.028,0.0,0.0,0,359],
+#   # },
+#   ID20: {
+#     Filename: YCB013,
+#     Description: 013_apple,
+#     nPoses: 1,
+#     Pose1: [0.04,0.0,0.0,0,359],
+#   },
+# }

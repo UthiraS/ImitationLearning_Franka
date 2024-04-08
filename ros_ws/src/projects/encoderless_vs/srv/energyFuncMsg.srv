@@ -1,0 +1,8 @@
+float32 gamma
+float32 it
+std_msgs/Float32MultiArray dS
+std_msgs/Float32MultiArray dR
+std_msgs/Float32MultiArray qhat
+---
+float32 J
+std_msgs/Float32MultiArray qhat_dot

@@ -1,0 +1,8 @@
+# Request part
+string name
+string[] joint_names
+float64[] joint_positions
+---
+# Response part
+bool success
+string message

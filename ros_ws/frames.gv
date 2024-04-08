@@ -1,0 +1,26 @@
+digraph G {
+"world" -> "panda_link0"[label="Broadcaster: /virtual_joint_broadcaster_1\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"map" -> "world"[label="Broadcaster: /virtual_joint_broadcaster_2\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"panda_EE" -> "end_effector_link"[label="Broadcaster: /virtual_joint_broadcaster_3\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"panda_link8" -> "panda_EE"[label="Broadcaster: /franka_control\nAverage rate: 29.561 Hz\nMost recent transform: 1710724839.025 ( -91.565 sec old)\nBuffer length: 4.939 sec\n"];
+"camera_link_temp" -> "camera_link"[label="Broadcaster: /realsense_link_broadcaster2\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"panda_hand" -> "camera_link_temp"[label="Broadcaster: /realsense_link_broadcaster1\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_link" -> "camera_depth_frame"[label="Broadcaster: /camera/realsense2_camera_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_depth_frame" -> "camera_depth_optical_frame"[label="Broadcaster: /camera/realsense2_camera_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_link" -> "camera_color_frame"[label="Broadcaster: /camera/realsense2_camera_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_aligned_depth_to_color_frame" -> "camera_color_optical_frame"[label="Broadcaster: /camera/realsense2_camera_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_link" -> "camera_aligned_depth_to_color_frame"[label="Broadcaster: /camera/realsense2_camera_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1710724747.461 sec old)\nBuffer length: 0.000 sec\n"];
+"panda_EE" -> "panda_K"[label="Broadcaster: /franka_control\nAverage rate: 29.561 Hz\nMost recent transform: 1710724839.025 ( -91.565 sec old)\nBuffer length: 4.939 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1710724747.461"[ shape=plaintext ] ;
+ }->"map";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1710724747.461"[ shape=plaintext ] ;
+ }->"panda_hand";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1710724747.461"[ shape=plaintext ] ;
+ }->"panda_link8";
+}

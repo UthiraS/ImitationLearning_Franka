@@ -1,0 +1,30 @@
+[01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ source ~/Envs/AVRL/bin/activate
+(AVRL) [01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ rosrun active_vision trainedPolicyServiceBrick.py
+Brick Policy
+[INFO] [1708710010.110780, 0.000000]:  policy service ready.
+[INFO] [1708710028.478854, 38.451000]: Service called. Direction -> 257
+[INFO] [1708710034.372042, 44.294000]: Service called. Direction -> 257
+[INFO] [1708710041.105855, 50.978000]: Service called. Direction -> 257
+[INFO] [1708710047.903656, 57.723000]: Service called. Direction -> 257
+[INFO] [1708710054.616625, 64.385000]: Service called. Direction -> 257
+[INFO] [1708710061.553967, 71.193000]: Service called. Direction -> 257
+[INFO] [1708710068.335223, 77.884000]: Service called. Direction -> 257
+[INFO] [1708710075.029962, 84.531000]: Service called. Direction -> 257
+[INFO] [1708710081.761612, 91.199000]: Service called. Direction -> 257
+[INFO] [1708710088.698969, 98.062000]: Service called. Direction -> 257
+[INFO] [1708710095.652998, 104.893000]: Service called. Direction -> 257
+[INFO] [1708710102.565529, 111.677000]: Service called. Direction -> 257
+[INFO] [1708710109.376544, 118.397000]: Service called. Direction -> 257
+[INFO] [1708710116.271049, 125.201000]: Service called. Direction -> 257
+[INFO] [1708710123.225240, 132.035000]: Service called. Direction -> 257
+[INFO] [1708710130.141947, 138.827000]: Service called. Direction -> 257
+[INFO] [1708710137.308445, 145.831000]: Service called. Direction -> 257
+[INFO] [1708710144.123293, 152.554000]: Service called. Direction -> 257
+[INFO] [1708710151.013618, 159.340000]: Service called. Direction -> 257
+[INFO] [1708710154.302456, 162.583000]: Service called. Direction -> 257
+[INFO] [1708710157.549803, 165.800000]: Service called. Direction -> 257
+^Csleep 1
+exit
+(AVRL) [01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ sleep 1
+(AVRL) [01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ exit
+exit
