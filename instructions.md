@@ -53,20 +53,19 @@ simulation training for Imitation learning
 install the necessary python venv version
 1. setup python3 virtual environment python python3 -m venv ~/Envs/AVRL
 2. activate the environment source ~/Envs/AVRL/bin/activate
-3. cd
-4.  pip install -r requirements.txt
-5.  install Cuda driver and Cuda toolkit
+3.  pip install -r requirements.txt
+4.  install Cuda driver and Cuda toolkit
       ###add LD_LIBRARY PATH and CUDA_HOME in bash profile
       export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-11.8/lib64
       export CUDA_HOME=/usr/local/cuda-11.8
       export PATH=${CUDA_HOME}/bin:${PATH}
-7.  install torch, TensorFlow, tensorrt
-8.  check the compatibility and version matches
-9.  cd ~/ros_ws/src/projects/active_vision/scripts/RL/
-10.  python3 Imitation.py
-11.  in other terminal run simualtion: roslaunch active_vision workspace.launch visual:="ON" simulationMode:="SIMULATION" 
-12. train data collected in ros_ws/src/projects/active_vision/scripts/RL/features_var_log.txt
-13. run python3 ros_ws/src/projects/active_vision/scripts/RL/ILSummarizer.py to visualize graph 
+5.  install torch, TensorFlow, tensorrt
+6.  check the compatibility and version matches
+7.  cd ~/ros_ws/src/projects/active_vision/scripts/RL/
+8.  python3 Imitation.py
+9.  in other terminal run simualtion: roslaunch active_vision workspace.launch visual:="ON" simulationMode:="SIMULATION" 
+10. train data collected in ros_ws/src/projects/active_vision/scripts/RL/features_var_log.txt
+11. run python3 ros_ws/src/projects/active_vision/scripts/RL/ILSummarizer.py to visualize graph 
 for multiple feature testing change feature_type in  ros_ws/src/projects/active_vision/src/kinectService.cpp and observation space in gazeboenv.py and model name in imitation.py
 
 
