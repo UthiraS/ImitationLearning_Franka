@@ -1,4 +1,4 @@
-# Instructions to setup environment to run IMitation learning training and testing
+# Instructions to setup environment to run Imitation learning training and testing
 
 # mer_lab
 Joint repository for the Manipulation and Environmental Robotics Lab
