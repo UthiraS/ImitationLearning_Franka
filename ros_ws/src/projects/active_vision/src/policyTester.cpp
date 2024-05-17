@@ -16,7 +16,7 @@
 #include <pcl/conversions.h>
 #include <pcl_ros/transforms.h>
 #include <ros/ros.h>
-#include <sensor_msgs/PointCloud2.h>
+#include <sensor_msgs/PointCloud2.h> 
 #include <pcl/features/normal_3d.h>
 #include <pcl/features/normal_3d_omp.h>
 #include <pcl/ModelCoefficients.h>
@@ -38,8 +38,8 @@ int maxSteps;
 int HAFstVecGridSize;
 string simulationMode;
 bool recordPtCldEachStep;
-string feature_type = "HAF";
-int logging = 0;
+string feature_type= "GRSD";
+int logging = 1;
 
 void help()
 {
@@ -49,13 +49,14 @@ void help()
 	cout << "*******" << endl;
 }
 
-bool findGrasp(int object, int objPoseCode, int objYaw, ros::ServiceClient &policy, ros::ServiceClient &restartObjService, ros::ServiceClient &moveObjService, ros::Publisher &currentObjectAnglePublisher)
+bool findGrasp(int object, int objPoseCode, int objYaw, string feature_type, ros::ServiceClient &policy, ros::ServiceClient &restartObjService, ros::ServiceClient &moveObjService, ros::Publisher &currentObjectAnglePublisher)
 {
 	//Start the object
 	active_vision::restartObjSRV startSrv;
 	startSrv.request.object = object;
 	startSrv.request.objPoseCode = objPoseCode;
 	startSrv.request.objYaw = objYaw;
+	startSrv.request.feature_type = feature_type;
 	restartObjService.call(startSrv);
 	std_msgs::Float64 angleMsg;
 	angleMsg.data = objYaw;
@@ -115,6 +116,7 @@ int getLocalParams(ros::NodeHandle &nh, string &dir, string &csvName, int &objID
 		return (-1);
 	}
 	nh.getParam("/active_vision/policyTester/objID", objID);
+	nh.getParam("/active_vision/policyTester/feature_type", feature_type);
 	
 	return 0;
 }
@@ -153,6 +155,7 @@ int main(int argc, char **argv)
 
 	restartObjService = nh.serviceClient<active_vision::restartObjSRV>("/active_vision/restartEnv");
 	moveObjService = nh.serviceClient<active_vision::controlSRV>("/active_vision/moveKinect");
+	feature_type = argv[2];
 
 	::runMode = atoi(argv[1]);
 	if (::runMode < MANUAL && ::runMode > TRAINED)
@@ -187,12 +190,13 @@ int main(int argc, char **argv)
 		ROS_INFO("Trained Policy Selected.");
 	}
 	
-	if (::simulationMode == "SIMULATION" && MANUAL != ::runMode)
+	if (::simulationMode == "SIMULATION"||::simulationMode == "FRANKASIMULATION" && MANUAL != ::runMode)
 	{
-		printf("Do you want to test for all possible poses (0->No, 1->Yes) : ");
-		string inputS;
-		cin >> inputS;
-		::testAll = (1 == atoi(inputS.c_str()));
+		// printf("Do you want to test for all possible poses (0->No, 1->Yes) : ");
+		// string inputS;
+		// cin >> inputS;
+		// ::testAll = (1 == atoi(inputS.c_str()));
+		::testAll = true;
 	}
 
 	env.spawnObject(objID, 0, 0);
@@ -205,35 +209,6 @@ int main(int argc, char **argv)
 
 	chrono::high_resolution_clock::time_point start, end;
 	double elapsed;
-	if (!testAll)
-	{
-		int objPoseCode = 0;
-		int objYaw = 0;
-		if (::simulationMode != "FRANKA")
-		{
-			printf("Enter the object pose code (0-%d) : ", int(env.objectDict[objID].nPoses - 1));
-			cin >> objPoseCode;
-			if (objPoseCode < 0 || objPoseCode > env.objectDict[objID].nPoses - 1)
-				objPoseCode = 0;
-			printf("Enter the object yaw (deg) (0-360) : ");
-			cin >> objYaw;
-		}
-
-		bool res = findGrasp(objID, objPoseCode, objYaw, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
-		
-		if (res){
-			if (::simulationMode != "SIMULATION"){
-				AVLOG("Checking grasp!", logging, 1);
-				std_msgs::String msg;
-				graspTestPublisher.publish(msg);
-				AVLOG("Grasp checked", logging, 1);
-			}
-		}
-		else
-			AVLOG("Grasp not found, env.graspID = "+to_string(env.graspID), logging, 1);
-		env.deleteObject(objID);
-		return 0;
-	}
 
 	// Reading the yawValues csv file
 	string yawAnglesCSVDir;
@@ -253,13 +228,118 @@ int main(int argc, char **argv)
 			yawAngleDict[yawAngle[row][0]].push_back(stoi(yawAngle[row][col]));
 		}
 	}
-
 	int uniformYawStepSize;
 	nh.getParam("/active_vision/policyTester/uniformYawStepSize", uniformYawStepSize);
 	int nDataPoints;
 	nh.getParam("/active_vision/policyTester/nDataPoints", nDataPoints);
-	if (::simulationMode == "FRANKASIMULATION")
-		nDataPoints = 3;
+	if (!testAll)
+	{
+		int objPoseCode = 0;
+		int objYaw = 0;
+		if (::simulationMode != "FRANKA")
+		{
+			printf("Enter the object pose code (0-%d) : ", int(env.objectDict[objID].nPoses - 1));
+			cin >> objPoseCode;
+			if (objPoseCode < 0 || objPoseCode > env.objectDict[objID].nPoses - 1)
+				objPoseCode = 0;
+			printf("Enter the object yaw (deg) (0-360) : ");
+			cin >> objYaw;
+		}
+		else
+		{
+			// printf("Enter the object pose code (0-%d) : ", int(env.objectDict[objID].nPoses - 1));
+			// cin >> objPoseCode;
+			// if (objPoseCode < 0 || objPoseCode > env.objectDict[objID].nPoses - 1)
+			objPoseCode = 0;
+			// printf("Enter the object yaw (deg) (0-360) : ");
+			objYaw = 45;
+		}
+
+		bool res = findGrasp(objID, objPoseCode, objYaw, feature_type, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
+		
+		if (res){
+			if (::simulationMode != "SIMULATION"){
+				AVLOG("Checking grasp!", logging, 1);
+				std_msgs::String msg;
+				// graspTestPublisher.publish(msg);
+				AVLOG("Grasp checked", logging, 1);
+			}
+		}
+		else
+			AVLOG("Grasp not found, env.graspID = "+to_string(env.graspID), logging, 1);
+		env.deleteObject(objID);
+		return 0;
+	}
+	else
+	{
+		for (int objPoseCode = 0; objPoseCode < env.objectDict[objID].nPoses; objPoseCode += 1)
+		{
+			int pointsToGo = nDataPoints;
+
+			// Checking for the uniform steps
+			for (int objYaw = env.objectDict[objID].poses[objPoseCode][3]; objYaw < env.objectDict[objID].poses[objPoseCode][4]; objYaw += uniformYawStepSize)
+			{
+				printf("%d - Obj #%d, Pose #%d, Yaw %d \t", nDataPoints - pointsToGo + 1, objID, objPoseCode, objYaw);
+				start = chrono::high_resolution_clock::now();
+				bool res  = findGrasp(objID, objPoseCode, objYaw, feature_type, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
+				end = chrono::high_resolution_clock::now();
+				elapsed = (chrono::duration_cast<chrono::milliseconds>(end - start)).count();
+				AVLOG("\tTime(ms) : "+to_string(elapsed), logging, 1);
+				if (res){
+					if (::simulationMode != "SIMULATION"){
+						AVLOG("Checking grasp!", logging, 1);
+						std_msgs::String msg;
+						graspTestPublisher.publish(msg);
+						AVLOG("Grasp checked", logging, 1);
+					}
+				}
+				else
+					AVLOG("Grasp not found, env.graspID = "+to_string(env.graspID), logging, 1);
+				pointsToGo--;
+			}
+
+			string key = to_string(int(env.objectDict[objID].poses[objPoseCode][3])) + "-" +
+								to_string(int(env.objectDict[objID].poses[objPoseCode][4]));
+
+			if (yawAngleDict.count(key) == 0)
+				continue;
+
+			// Checking for the random steps
+			int i =0;
+			for (int ctr = 0; ctr < yawAngleDict[key].size() && pointsToGo > 0; ctr++)
+			{
+				printf("%d - Obj #%d, Pose #%d, Yaw %d \t", nDataPoints - pointsToGo + 1, objID, objPoseCode, yawAngleDict[key][ctr]);
+				start = chrono::high_resolution_clock::now();
+				bool res  = findGrasp(objID, objPoseCode, yawAngleDict[key][ctr], feature_type, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
+				end = chrono::high_resolution_clock::now();
+				elapsed = (chrono::duration_cast<chrono::milliseconds>(end - start)).count();
+				AVLOG("\tTime(ms) : "+to_string(elapsed), logging, 1);
+				if (res){
+					if (::simulationMode != "SIMULATION"){
+						AVLOG("Checking grasp!", logging, 1);
+						std_msgs::String msg;
+						// graspTestPublisher.publish(msg);
+						AVLOG("Grasp checked", logging, 1);
+					}
+				}
+				else
+					AVLOG("Grasp not found, env.graspID = "+to_string(env.graspID), logging, 1);
+				pointsToGo--;
+				i++;
+				if(i >=4)
+				{
+					break;
+				}
+			}
+		}
+		env.deleteObject(objID);
+		return 0;
+	}
+	
+
+	
+	// if (::simulationMode == "FRANKASIMULATION")
+	// 	nDataPoints = 3;
 	for (int objPoseCode = 0; objPoseCode < env.objectDict[objID].nPoses; objPoseCode += 1)
 	{
 		int pointsToGo = nDataPoints;
@@ -269,7 +349,7 @@ int main(int argc, char **argv)
 		{
 			printf("%d - Obj #%d, Pose #%d, Yaw %d \t", nDataPoints - pointsToGo + 1, objID, objPoseCode, objYaw);
 			start = chrono::high_resolution_clock::now();
-			findGrasp(objID, objPoseCode, objYaw, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
+			findGrasp(objID, objPoseCode, objYaw, feature_type, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
 			end = chrono::high_resolution_clock::now();
 			elapsed = (chrono::duration_cast<chrono::milliseconds>(end - start)).count();
 			AVLOG("\tTime(ms) : "+to_string(elapsed), logging, 1);
@@ -287,7 +367,7 @@ int main(int argc, char **argv)
 		{
 			printf("%d - Obj #%d, Pose #%d, Yaw %d \t", nDataPoints - pointsToGo + 1, objID, objPoseCode, yawAngleDict[key][ctr]);
 			start = chrono::high_resolution_clock::now();
-			findGrasp(objID, objPoseCode, yawAngleDict[key][ctr], policy, restartObjService, moveObjService, currentObjectAnglePublisher);
+			findGrasp(objID, objPoseCode, yawAngleDict[key][ctr], feature_type, policy, restartObjService, moveObjService, currentObjectAnglePublisher);
 			end = chrono::high_resolution_clock::now();
 			elapsed = (chrono::duration_cast<chrono::milliseconds>(end - start)).count();
 			AVLOG("\tTime(ms) : "+to_string(elapsed), logging, 1);

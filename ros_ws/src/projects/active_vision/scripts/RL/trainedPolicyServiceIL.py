@@ -44,14 +44,16 @@ if __name__ == "__main__":
     # directions=N(1),NE(2),E(3),SE(4),S(5),SW(6),W(7),NW(8)
     
 
-    feature_types = ["HAF"] 
-    #, "GRSD", "VFH", "CVFH", "ESF", "GASD"]
+   
+    
+    feature_type = sys.argv[1]
+    print("Feature Type ", feature_type)
 
-    modelType = rospy.get_param("/active_vision/policyTester/ILPolicy")
+    modelType = sys.argv[2]
 
     print("Loading ", modelType)
      
-    model = Imitation.bcSetup(None, "LOAD", gazeboEnv.emptyWrapper(), modelType).model.policy
+    model = Imitation.bcSetup(None, "LOAD", gazeboEnv.emptyWrapper(feature_type), modelType).model.policy
     
     s = rospy.Service('/active_vision/trained_policy', trainedPolicySRV, predictionServer)
     rospy.loginfo(" policy service ready.")

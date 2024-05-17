@@ -9,10 +9,10 @@
   <rosparam param="/active_vision/simulationMode" subst_value="True">$(arg simulationMode)</rosparam>
   <node name="graspSynthesis" pkg="active_vision" type="graspSynthesis" args="1" output="screen"/>
   <node name="getStateVecPCA" pkg="active_vision" type="getStateVecPCA" args="0" output="screen"/>
-  <node name="kinectService" pkg="active_vision" type="kinectService" output="screen"/>
-  <node name="trainedPolicyService" pkg="active_vision" type="trainedPolicyServiceEOpt.py" output="screen"/>
+  <!-- <node name="kinectService" pkg="active_vision" type="kinectService" output="screen"/> -->
+  <!-- <node name="trainedPolicyService" pkg="active_vision" type="trainedPolicyServiceEOpt.py" output="screen"/> -->
   <node name="heuristicPolicyService" pkg="active_vision" type="heuristicPolicyService" args="0"/>
-  <node name="optPathService" pkg="active_vision" type="optPathService" output="screen"/>
+  <!-- <node name="optPathService" pkg="active_vision" type="optPathService" output="screen"/> -->
   <node name="PCASource" pkg="active_vision" type="getStateVecPCA" args="" output="screen"/>
 
   <!-- Simulation with floating Kinect -->

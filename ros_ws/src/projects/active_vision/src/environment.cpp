@@ -296,6 +296,7 @@ void environment::spawnObject(int objectID, int choice, float yaw)
     }
   }
   checkObj.request.model_name = objectDict[objectID].description;
+  
   _world->gazeboCheckModel.call(checkObj);
   if(checkObj.response.success){
     printf("Object already exists! Skipping to move\n");
@@ -1505,7 +1506,7 @@ void environment::graspObject(graspPoint &graspData){
   if(simulationMode == "SIMULATION") return;
 
   int temp;
-  std::cout << "Do you want to run the grasp test? (1/0)"; std::cin >> temp;
+  temp =1;
   if(temp == 0) return;
 
   clearAllConstraints();
@@ -1583,64 +1584,65 @@ void environment::graspObject(graspPoint &graspData){
   moveGripper(graspData.gripperWidth+0.04);
 
   // Move to Grasp and grasp
-  if(res){
-    std::cout << "Enter any key to start grasping..."; std::cin >> temp;
-    res = moveFranka(tfGrasp.matrix(),"CARTESIAN",false,true,p);
-    if(simulationMode == "FRANKA") moveGripper(graspData.gripperWidth-voxelGridSize-0.02,true);
-    else                           moveGripper(graspData.gripperWidth-1.5*voxelGridSize,true);
-  }else std::cout << "Skipping Grasp" << std::endl;
+  // if(res){
+  //   std::cout << "Enter any key to start grasping..."; std::cin >> temp;
+  //   res = moveFranka(tfGrasp.matrix(),"CARTESIAN",false,true,p);
+  //   if(simulationMode != "SIMULATION") moveGripper(graspData.gripperWidth-voxelGridSize-0.02,true);
+  //   else                           moveGripper(graspData.gripperWidth-1.5*voxelGridSize,true);
+  // }else 
+  std::cout << "Skipping Grasp" << std::endl;
 
-  // Lift test
-  if(res){
-    std::cout << "Do you want to run the Lift test? (1/0) : "; std::cin >> temp;
-    if(temp == 1){
-      std::cout << "Lift test running" << std::endl;
-      res = moveFranka(tfGraspMoveUp.matrix(),"CARTESIAN",false,true,p);
-      std::cout << "Lift test ended" << std::endl;
-    }
-  }else std::cout << "Skipping Lift Test" << std::endl;
+  // // Lift test
+  // if(res){
+  //   std::cout << "Do you want to run the Lift test? (1/0) : "; std::cin >> temp;
+  //   if(temp == 1){
+  //     std::cout << "Lift test running" << std::endl;
+  //     res = moveFranka(tfGraspMoveUp.matrix(),"CARTESIAN",false,true,p);
+  //     std::cout << "Lift test ended" << std::endl;
+  //   }
+  // }else std::cout << "Skipping Lift Test" << std::endl;
 
-  // Rotation test
-  if(res){
-    std::cout << "Do you want to run the Rotation test? (1/0) : "; std::cin >> temp;
-    if(temp == 1){
-      moveFrankaHome(false);
-      std::cout << "Rotation test running" << std::endl;
-      moveit_planner::SetJointWithTime setJointWithTimeMsg;
-      setJointWithTimeMsg.request.joint_name = "panda_joint7";
-      for(int i = 0; i < 2; i++){
-        setJointWithTimeMsg.request.joint_angle = 0.000; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-        setJointWithTimeMsg.request.joint_angle = 1.570; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-      }
-      setJointWithTimeMsg.request.joint_angle = 0.785; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-      std::cout << "Rotation test ended" << std::endl;
-    }
-  }else std::cout << "Skipping Rotation Test" << std::endl;
+  // // Rotation test
+  // if(res){
+  //   std::cout << "Do you want to run the Rotation test? (1/0) : "; std::cin >> temp;
+  //   if(temp == 1){
+  //     moveFrankaHome(false);
+  //     std::cout << "Rotation test running" << std::endl;
+  //     moveit_planner::SetJointWithTime setJointWithTimeMsg;
+  //     setJointWithTimeMsg.request.joint_name = "panda_joint7";
+  //     for(int i = 0; i < 2; i++){
+  //       setJointWithTimeMsg.request.joint_angle = 0.000; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //       setJointWithTimeMsg.request.joint_angle = 1.570; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //     }
+  //     setJointWithTimeMsg.request.joint_angle = 0.785; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //     std::cout << "Rotation test ended" << std::endl;
+  //   }
+  // }else std::cout << "Skipping Rotation Test" << std::endl;
 
-  // Shaking test
-  if(res){
-    std::cout << "Do you want to run the Shaking test? (1/0) : "; std::cin >> temp;
-    if(temp == 1){
-      moveFrankaHome(false);
-      std::cout << "Shaking test running" << std::endl;
-      moveit_planner::SetJointWithTime setJointWithTimeMsg;
-      setJointWithTimeMsg.request.joint_name = "panda_joint5";
-      for(int i = 0; i < 4; i++){
-        setJointWithTimeMsg.request.joint_angle = -0.35; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-        setJointWithTimeMsg.request.joint_angle =  0.35; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-      }
-      setJointWithTimeMsg.request.joint_angle =  0.00; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
-      std::cout << "Shaking test ended" << std::endl;
-    }
-  }else std::cout << "Skipping Shaking test" << std::endl;
+  // // Shaking test
+  // if(res){
+  //   std::cout << "Do you want to run the Shaking test? (1/0) : "; std::cin >> temp;
+  //   if(temp == 1){
+  //     moveFrankaHome(false);
+  //     std::cout << "Shaking test running" << std::endl;
+  //     moveit_planner::SetJointWithTime setJointWithTimeMsg;
+  //     setJointWithTimeMsg.request.joint_name = "panda_joint5";
+  //     for(int i = 0; i < 4; i++){
+  //       setJointWithTimeMsg.request.joint_angle = -0.35; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //       setJointWithTimeMsg.request.joint_angle =  0.35; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //     }
+  //     setJointWithTimeMsg.request.joint_angle =  0.00; _world->oneJointWithTimeClient.call(setJointWithTimeMsg);
+  //     std::cout << "Shaking test ended" << std::endl;
+  //   }
+  // }else std::cout << "Skipping Shaking test" << std::endl;
 
-  res = moveFranka(tfGraspMoveUp.matrix(),"JOINT",false,true,p);
-  // Go to same location and release
-  if(res){
-    std::cout << "Enter any key to place the object back..."; std::cin >> temp;
-    res = moveFranka(tfGrasp.matrix(),"CARTESIAN",false,true,p);
-    moveGripper(graspData.gripperWidth+0.04);
-  }else std::cout << "Skipping placing object back" << std::endl;
+  // res = moveFranka(tfGraspMoveUp.matrix(),"JOINT",false,true,p);
+  // // Go to same location and release
+  // if(res){
+  //   std::cout << "Enter any key to place the object back..."; std::cin >> temp;
+  //   res = moveFranka(tfGrasp.matrix(),"CARTESIAN",false,true,p);
+  //   moveGripper(graspData.gripperWidth+0.04);
+  // }else std::cout << "Skipping placing object back" << std::endl;
 
   // Move to Post-grasp
   if(res){

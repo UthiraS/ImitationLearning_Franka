@@ -38,7 +38,7 @@ def predictionServer(req):
 
 
 if __name__ == "__main__":
-    feature_type = "HAF" 
+    feature_type = "GRSD" 
     #, "GRSD", "VFH", "CVFH", "ESF", "GASD"]
 
     # Load parameters from yaml

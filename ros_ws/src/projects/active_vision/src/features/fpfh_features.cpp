@@ -35,6 +35,10 @@ void FPFH_Features::calculateFeatures()
 
 void FPFH_Features::convertDesctoVec(std::vector<float> &featVector)
 {
+    for (float d: (*descriptors)[0].histogram)
+    {
+        featVector.push_back(d);
+    }    
     
 }
 

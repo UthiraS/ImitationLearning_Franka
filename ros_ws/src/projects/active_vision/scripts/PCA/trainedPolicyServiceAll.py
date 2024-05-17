@@ -62,7 +62,7 @@ if __name__ == "__main__":
     
     filename = ["/home/rbe07/mer_lab/ros_ws/src/projects/active_vision/dataCollected/storage/Data_11/log_202203_14_15_27_1647286033.txt"]    
 
-    feature_types = ["HAF"] 
+    feature_types = ["GRSD"] 
     #, "GRSD", "VFH", "CVFH", "ESF", "GASD"]
      
     for feature_type in feature_types:

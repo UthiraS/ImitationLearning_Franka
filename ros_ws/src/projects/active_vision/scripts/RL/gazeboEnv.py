@@ -9,7 +9,7 @@ from cmath import isfinite
 from time import sleep
 # import pdb 
 REWARD_SCALING = 2.0
-
+feature_type = "ESF"
 class Spec():
     """ a fake spec """
 
@@ -23,6 +23,7 @@ class environmentDetails():
         self.yaws = []
         self.objNames = []
         self.name = name
+        
 
     def insert(self, id, number_poses, number_yaws, name):
         self.obj.append(id)
@@ -60,10 +61,27 @@ class hardDetails(environmentDetails):
         self.insert(51, 1, 359, "072-a_toy_airplane")
 
 class emptyWrapper(Env):
-    def __init__(self, random_poses=True, seed=None, details=environmentDetails()):
+    def __init__(self, feature_type,random_poses=True, seed=None, details=environmentDetails()):
         super(emptyWrapper, self).__init__()
         np.random.seed(seed)
-        self.observation_shape = (53,)
+        self.observation_shape = (1283,)
+        # Define a mapping from feature types to observation shapes
+        feature_type_to_observation_shape = {
+            "HAF": (53,),  # Example shape, adjust as necessary
+            "GRSD": (45,),  # Adjust the shapes as needed for each feature type
+            "VFH": (619,),
+            "CVFH": (619,),
+            "ESF": (1283,),
+            "GASD": (1027,),
+            "FPFH": (69,),
+            "NOFEATURE" : (3,),
+        }
+        
+        # Look up the observation shape for the given feature type
+        if feature_type in feature_type_to_observation_shape:
+            self.observation_shape = feature_type_to_observation_shape[feature_type]
+        else:
+            raise ValueError(f"Unknown feature type: {feature_type}")
         self.observation_space = spaces.Box(low = np.zeros(self.observation_shape), 
                                             high = 255*np.ones(self.observation_shape),
                                             dtype = np.float16)
@@ -73,10 +91,26 @@ class emptyWrapper(Env):
         self.spec = Spec("dummy wrapper var")
 
 class gazeboWrapper(Env):
-    def __init__(self, random_poses=True, seed=None, details=environmentDetails()):
+    def __init__(self,feature_type, random_poses=True, seed=None, details=environmentDetails()):
         super(gazeboWrapper, self).__init__()
         np.random.seed(seed)
-        self.observation_shape = (53,)
+        feature_type_to_observation_shape = {
+            "HAF": (53,),  # Example shape, adjust as necessary
+            "GRSD": (45,),  # Adjust the shapes as needed for each feature type
+            "VFH": (619,),
+            "CVFH": (619,),
+            "ESF": (1283,),
+            "GASD": (1027,),
+            "FPFH": (69,),
+            "NOFEATURE" : (3,),
+        }
+        
+        # Look up the observation shape for the given feature type
+        if feature_type in feature_type_to_observation_shape:
+            self.observation_shape = feature_type_to_observation_shape[feature_type]
+        else:
+            raise ValueError(f"Unknown feature type: {feature_type}")
+        # self.observation_shape = (1283,)
         self.observation_space = spaces.Box(low = np.zeros(self.observation_shape), 
                                             high = 255*np.ones(self.observation_shape),
                                             dtype = np.float16)
@@ -115,12 +149,12 @@ class gazeboWrapper(Env):
         
         self.details = details
         self.random_poses = random_poses
-        
+        self.feature_type = feature_type
         self.rMax = 360
         self.rMin = 0
         self.cReward = 2.0
-        
-        self.infoSpaceSize =  53 #1283 for  ESF ,619 for CVFH,VFH_features, 1027 for GASD features, 3 for FPFH, 53 for HAF, 45 for GRSD
+        self.feature_type = feature_type
+        self.infoSpaceSize =  feature_type_to_observation_shape[feature_type][0] #1283 for  ESF ,619 for CVFH,VFH_features, 1027 for GASD features, 69 for FPFH, 53 for HAF, 45 for GRSD
         self.actionSpaceSize = 2
         self.obj = 3
         self.discrete = False
@@ -144,7 +178,7 @@ class gazeboWrapper(Env):
         
         print("Testing object %d, pose %d, yaw %d" % (self.obj, pose, yaw))
         
-        restartData = self.restartEnv(self.obj, pose, yaw)
+        restartData = self.restartEnv(self.obj, pose, yaw,self.feature_type)
 
         observation = np.array(restartData.stateVec.data)
         
@@ -207,7 +241,7 @@ class gazeboWrapper(Env):
         # print(int(360*action[0]))
         done = ret.done
         cStep = ret.steps
-        
+        # print(new_observation[-2], new_observation[-1])
         cam_pose = Point()
         cam_pose.x = 1.0 #To account for viewsphere size diffs new_observation[-3]
         cam_pose.y = new_observation[-2]

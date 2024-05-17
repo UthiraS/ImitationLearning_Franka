@@ -42,9 +42,9 @@ HARD = [2, 3, 4, 7]
 BOTHE_M = [0, 1, 5, 6, 8, 9]
 SAVED_EXPERT = {0:[94.15, 2.94],500:[94.6,1.83], 1000:[92.6,5.94], 1500:[93.5, 2.2], 2000:[94, 2.97], 2500:[93.8, 2.8], 3000:[93.45, 2.99], 3500:[94.4, 2.13], 4000:[91.2, 8.42], 4500:[93.6, 2.24], 5000:[93.8, 4.41], 5500:[93.2, 3.04], 6000:[93.85, 2.29], 6500:[92.4, 7.97], 7000:[93.9, 2.21], 7500:[93.8, 3.84], 8000:[92.4, 4.58], 8500:[93.7, 2.26], 9000:[94.45, 3.12], 9500:[93.75, 3.16]}
 SAVED_RANDOM = {0:[66.90, 13.23],500:[69.15, 14.20], 1000:[67.90, 10.24], 1500:[68.15, 12.09], 2000:[71.75, 15.89], 2500:[68.35, 15.63], 3000:[65.1, 10.16], 3500:[68.1, 14.65], 4000:[70.3, 12.68], 4500:[70.4, 12.72], 5000:[72.25, 16.2], 5500:[71.5, 14.01], 6000:[66.95, 12.4], 6500:[68.2, 12.83], 7000:[68.9, 13.03], 7500:[66.4, 12.5], 8000:[69.7, 12.83], 8500:[70.6, 13.57], 9000:[70.7, 15.51], 9500:[66.6, 13.04]}
-
+feature_type="ESF"
 def buildEnv(random_poses=True, seed=None, target= easyDetails(), length=False):
-    env = gazeboWrapper(random_poses=random_poses, seed=seed, details=target)
+    env = gazeboWrapper(feature_type,random_poses=random_poses, seed=seed, details=target)
     env.strictLength = length
     env = Monitor(env)
     return env
@@ -264,7 +264,7 @@ def sampleAblation(removedItemIndices=[], envName="All_dagger", load=False, size
         
 def testEnvs():
     rS = 1
-    iterations = 20
+    iterations = 15
     targets = buildFullOptionList()
     cEnv = buildEnv(random_poses=True, seed=rS, target=targets[0], length=True)
     expert = CheatWrapper(cEnv, cEnv.observation_space, cEnv.action_space)
@@ -309,9 +309,12 @@ def mergeOptionList(skip=[], envName="All"):
 def buildFullOptionList():
     # objects = ["009_gelatin_box", 
     # "055_baseball", "072-a_toy_airplane",
-    # "010_potted_meat_can", "003_cracker_box", "035_power_drill", "005_tomato_soup_can",
+    # "010_potted_meat_can", "003_cracker_box", "035_power_drill", 
     # "006_mustard_bottle", "021_bleach_cleanser", "013_apple", "Weisshai_Great_White_Shark"]
-    # IDs = [8, 41, 51, 9, 2, 28, 4, 5, 19, 12, 65]
+    # IDs = [8, 41, 51, 9, 2, 28, 5, 19, 12, 65]
+
+    # objects = ["Weisshai_Great_White_Shark"]
+    # IDs = [65]
 
     # objects = ["009_gelatin_box",
     # "055_baseball", "072-a_toy_airplane",
@@ -341,15 +344,17 @@ def buildFullOptionList():
 
     # Crossvalidation Set 2
 
-    objects= ['009_gelatin_box', '055_baseball', '010_potted_meat_can', '003_cracker_box', '035_power_drill', '005_tomato_soup_can', '006_mustard_bottle', '021_bleach_cleanser', '013_apple']
-    IDs= [8, 41, 9, 2, 28, 4, 5, 19, 12]
+    # objects= ['009_gelatin_box', '055_baseball', '010_potted_meat_can', '003_cracker_box', '035_power_drill', '005_tomato_soup_can', '006_mustard_bottle', '021_bleach_cleanser', '013_apple']
+    # IDs= [8, 41, 9, 2, 28, 4, 5, 19, 12]
+
     # Test Objects= ['072-a_toy_airplane', 'Weisshai_Great_White_Shark']
     # Test IDs= [51, 65]
-
+    # objects= ['009_gelatin_box', '055_baseball']
+    # IDs= [8, 41]
     # Crossvalidation Set 3
 
-    # Objects= ['009_gelatin_box', '072-a_toy_airplane', '010_potted_meat_can', '003_cracker_box', '035_power_drill', '005_tomato_soup_can', '006_mustard_bottle', '013_apple', 'Weisshai_Great_White_Shark']
-    # IDs= [8, 51, 9, 2, 28, 4, 5, 12, 65] 
+    objects= ['009_gelatin_box', '072-a_toy_airplane', '010_potted_meat_can', '003_cracker_box', '035_power_drill', '005_tomato_soup_can', '006_mustard_bottle', '013_apple', 'Weisshai_Great_White_Shark']
+    IDs= [8, 51, 9, 2, 28, 4, 5, 12, 65] 
     # Test Objects= ['055_baseball', '021_bleach_cleanser']
     # Test IDs= [41, 19]
 
@@ -408,9 +413,10 @@ if __name__ == '__main__':
     
     # sampleAblation([], "Train_set_large_GASD1", False, 128)
 
-    sampleAblation([8, 28, 12], "Train_set_large_HAF_cross2", False, 128) #crossvalidation 2
-    # sampleAblation([51, 65], "Train_set_large_GASD_cross2", False, 128) # #crossvalidation 2
-    # sampleAblation([41, 19], "Train_set_large_GASD_cross3", False, 128) # #crossvalidation 3
+    # sampleAblation([8, 28, 12], "Train_set_small_HAF_cross1", False, 32) #crossvalidation 1
+    # sampleAblation([4], "Train_set_large_FPFH_changed", False, 128) 
+    # #crossvalidation 2
+    sampleAblation([41, 19], "Train_set_large_ESF_cross3", False, 128) # #crossvalidation 3
     # sampleAblation([2, 5], "Train_set_large_GASD_cross4", False, 128) # #crossvalidation 4
     # sampleAblation([9, 4], "Train_set_large_GASD_cross5", False, 128) # #crossvalidation 5
 

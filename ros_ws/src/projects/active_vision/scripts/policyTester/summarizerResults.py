@@ -5,7 +5,7 @@ import numpy as np
 from prettytable import PrettyTable
 import matplotlib.pyplot as plt
 from collections import OrderedDict
-from summarizerDataCollected import readInput,fig2img,plots2jpg
+from summarizerDataCollected import readInput,fig2img,plots2jpg,graphSummary
 from toolViewPointCalc import findDirection
 from PIL import Image
 import rospkg
@@ -205,7 +205,7 @@ def graphSummary(path,policyWise,policyWise2,stVecWise):
 
     plots2jpg(plots,path+"policyComparison_",1)
 
-    # # Creating policyWise plots i.e. state vector comparisons
+    # Creating policyWise plots i.e. state vector comparisons
     # plots = []
     # fig, ax = plt.subplots(1,1); ax = np.ravel(ax)
     # fig.set_size_inches(6, 4)

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from math import sqrt
 
 def readVarLog():
-  with open("./features_var_log.txt", "r") as file:
+  with open("./featur.txt", "r") as file:
     data = file.read()
     data = data.split("---------------")
     lastRuns = {}

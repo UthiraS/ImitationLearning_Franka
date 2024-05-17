@@ -21,7 +21,7 @@
 #include <pcl/conversions.h>
 #include <pcl_ros/transforms.h>
 
-std::string feature_type = "HAF";
+std::string feature_type = "GRSD";
 int mode;
 int recordCode;
 int HAFstVecGridSize;
@@ -301,7 +301,7 @@ bool startObj(active_vision::restartObjSRV::Request &req,
 		cPolicy = tempPolicy;
 		saveLocation = cPolicy+":"+getCurTime()+"_dataRec.csv";
 	}
-
+	feature_type = req.feature_type;
 	cObj = req.object;
 	resetEnv();
 	AVLOG("Reset object", logging, 1);
@@ -469,6 +469,7 @@ int main(int argc, char **argv)
 
 	nh.getParam("/active_vision/policyTester/HAFstVecGridSize", ::HAFstVecGridSize);
 	nh.getParam("/active_vision/policyTester/PolicyVis", ::visualizationLevel);
+	nh.getParam("/active_vision/policyTester/feature_type", ::feature_type);
 	g = new graspSynthesis();
 
 	if(0 < ::visualizationLevel)

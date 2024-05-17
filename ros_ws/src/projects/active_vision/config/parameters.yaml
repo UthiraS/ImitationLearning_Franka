@@ -1,5 +1,5 @@
 cameraMode: 3 # Camera Movement Mode
-simulationMode: SIMULATION # SIMULATION / FRANKASIMULATION / FRANKA
+simulationMode: FRANKASIMULATION # SIMULATION / FRANKASIMULATION / FRANKA
 
 optPath: {
     optPathDebugLevel: 0,         #0=no debug 1=text debug 2=verbose debug, visuals 3=grasp debug
@@ -27,7 +27,8 @@ policyTester: {
     policy: "IL_large",                      # Policy to be used (This is set in the roslaunch)
     relative_path: True,                    # Whether this is relative to the package_path
     directory: '/dataCollected/testData/',  # Directory to which the PCD, CSV will be saved
-    objID: 3,                               # Object for which data has to be collected
+    objID: 41,                               # Object for which data has to be collected
+    objID: 51,                               # Object for which data has to be collected
     csvName: 'default.csv',                 # CSV file to which the data has to be saved
     csvStVecDir: '/misc/State_Vector/',     # Directory where the state vector has been stored
     csvStVec: 'obj_2_3_g5.csv',             # Name of csv inside storageDir
@@ -35,11 +36,11 @@ policyTester: {
     maxSteps: 45, #5,                            # Max number of steps to be taken before stopping
     nDataPoints: 100,                        # Number of data points for each pose to test (Max 200)
     yawAnglesCSVDir: '/misc/yawValues/',
-    yawAnglesCSV: Seed1.csv,                # csv files to choose the yaw angles from
+    yawAnglesCSV: Seed3.csv,                # csv files to choose the yaw angles from
     uniformYawStepSize: 45,                 # Step size for yaw angles starting from 0 which will be checked
     heuristicDiagonalPref: true,            # If the 3D Heuristic should prefer the diagonals or not
     recordPtCldEachStep: false,             # True if record pointcloud for each step
-
+    feature_type: ESF, 
     # Parameter for any policy which uses PCA
     # Use a value from 0-1 to set components based on the explained_variance_ratio cumulative sum
     PCAcomponents: 0.85,
@@ -76,6 +77,6 @@ environment: {
     internalVoxelFactor: 1,         #X times internal voxels are smaller than public ones.
     addNoise: false,
     depthNoise: 0,
-    ICP1: 0.07,
-    ICP2: 0.05,
+    ICP1: 0.04,
+    ICP2: 0.01,
 }

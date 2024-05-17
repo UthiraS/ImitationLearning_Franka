@@ -8,58 +8,37 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
-  panda_joint1:
-    has_position_limits: true
-    max_position: 2.4973
-    min_position: -2.4973 
+  panda_joint1:   
     has_velocity_limits: true
     max_velocity: 2.1750
     has_acceleration_limits: true
     max_acceleration: 1.75
-  panda_joint2:
-    has_position_limits: true
-    max_position: 1.3628
-    min_position: -1.3628
+  panda_joint2:   
     has_velocity_limits: true
     max_velocity: 2.1750
     has_acceleration_limits: true
     max_acceleration: 1.875
-  panda_joint3:
-    has_position_limits: true
-    max_position: 2.4973
-    min_position: -2.4973
+  panda_joint3:    
     has_velocity_limits: true
     max_velocity: 2.1750
     has_acceleration_limits: true
     max_acceleration: 1.5
-  panda_joint4:
-    has_position_limits: true
-    max_position: -1.9598
-    min_position: -2.7718
+  panda_joint4:   
     has_velocity_limits: true
     max_velocity: 2.1750
     has_acceleration_limits: true
     max_acceleration: 1.125
-  panda_joint5:
-    has_position_limits: true
-    max_position: 2.4973
-    min_position: -2.4973
+  panda_joint5:    
     has_velocity_limits: true
     max_velocity: 2.6100
     has_acceleration_limits: true
     max_acceleration: 1.75
-  panda_joint6:
-    has_position_limits: true
-    max_position: 3.2525
-    min_position: -1.9475
+  panda_joint6:    
     has_velocity_limits: true
     max_velocity: 2.6100
     has_acceleration_limits: true
     max_acceleration: 2
-  panda_joint7:
-    has_position_limits: true
-    max_position: 2.4973
-    min_position: -2.4973
+  panda_joint7:    
     has_velocity_limits: true
     max_velocity: 2.6100
     has_acceleration_limits: true

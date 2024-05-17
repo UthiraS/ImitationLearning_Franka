@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import pdb
 import sys, csv,os, copy, io
 import numpy as np
 from prettytable import PrettyTable
@@ -50,16 +50,28 @@ def plots2jpg(plots,path,type):
                 ctr += 1
 
 #Function to read the input data file
-def readInput(fileName):
-    data = []
-    with open(fileName) as csv_file:
-        # Reading the csv file
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for line in csv_reader:
-            # Going through it line by line as storing it in a list
-            data.append([i for i in line[:]])
+# def readInput(fileName):
+#     pdb.set_trace()
+#     data = []
+#     with open(fileName) as csv_file:
+#         # Reading the csv file
+#         csv_reader = csv.reader(csv_file, delimiter=',')
+#         for line in csv_reader:
+#             print(line)
+#             # Going through it line by line as storing it in a list
+#             print("ll \n")
+#             data.append([i for i in line[:]])
+#     print(len(np.asarray(data)))
+#     return np.asarray(data)
 
-    return np.asarray(data)
+
+def readInput(file_path):
+    data = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            line_data = line.strip().split(',')
+            data.append(line_data)
+    return data
 
 #Read file and plot camera angle versus initial direction chosen. TODO:
 # Move to a separate file? Refactor for more general data analysis?
@@ -114,7 +126,7 @@ def genSummary(fileName,nBins):
     bin4 = []
     for i in range(maxSteps):
         bin4.append([0,0,0,0,0,0,0,0])
-
+    pdb.set_trace()
     #Finding all unique configurations
     data = readInput(fileName)
     summary = []
@@ -260,7 +272,7 @@ def graphSummary(path,summary):
 
         ax[0].set_xlabel('Step number that leads to a successful grasp', fontsize='small')
 
-        fig.suptitle("Step number distribution - Training Data : Avg Steps "+str(avg), fontsize='medium')
+        fig.suptitle("Step number distribution - Training Data : Avg Steps "+str(avg), fontsize='small')
         fig.tight_layout(rect=[0, 0.03, 1, 0.95])
 
         plots.append(fig2img(fig))

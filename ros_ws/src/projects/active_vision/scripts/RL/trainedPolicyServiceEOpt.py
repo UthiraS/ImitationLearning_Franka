@@ -56,7 +56,7 @@ if __name__ == "__main__":
     # directions=N(1),NE(2),E(3),SE(4),S(5),SW(6),W(7),NW(8)
     
 
-    feature_types = ["HAF"] 
+    feature_types = ["ESFH"] 
     #, "GRSD", "VFH", "CVFH", "ESF", "GASD"]
     
     s = rospy.Service('/active_vision/trained_policy', trainedPolicySRV, predictionServer)

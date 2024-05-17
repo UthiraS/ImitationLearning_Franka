@@ -1,6 +1,7 @@
 int64 object
 int64 objPoseCode
 int64 objYaw
+string feature_type
 ---
 std_msgs/Float32MultiArray stateVec
 std_msgs/Float64MultiArray viz

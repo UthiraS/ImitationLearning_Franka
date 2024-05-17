@@ -28,3 +28,71 @@ exit
 (AVRL) [01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ sleep 1
 (AVRL) [01;32muthira@uthira-IdeaPad-L340-15IRH-Gaming[00m:[01;34m~/mer_lab[00m$ exit
 exit
+[01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ source /home/merlab/uthira/Envs/AVRL/bin/activate
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ rosrun active_vision trainedPolicyServiceIL.py GASD Train_set_large_GASD
+2024-04-24 22:53:45.850783: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-04-24 22:53:45.891754: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Feature Type  GASD
+Loading  Train_set_large_GASD
+/home/merlab/uthira/Envs/AVRL/lib/python3.8/site-packages/gym/spaces/box.py:73: UserWarning: [33mWARN: Box bound precision lowered by casting to float16[0m
+  logger.warn(
+Starting loading
+^Csleep 1
+exit
+Done loading!
+[INFO] [1714013629.745285]:  policy service ready.
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ sleep 1
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ exit
+exit
+[01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ source /home/merlab/uthira/Envs/AVRL/bin/activate
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ rosrun active_vision trainedPolicyServiceIL.py GASD Train_set_large_GASD
+2024-04-24 22:54:32.240745: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-04-24 22:54:32.276282: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Feature Type  GASD
+Loading  Train_set_large_GASD
+/home/merlab/uthira/Envs/AVRL/lib/python3.8/site-packages/gym/spaces/box.py:73: UserWarning: [33mWARN: Box bound precision lowered by casting to float16[0m
+  logger.warn(
+Starting loading
+Done loading!
+[INFO] [1714013675.350159]:  policy service ready.
+^Csleep 1
+exit
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ sleep 1
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ exit
+exit
+[01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ source /home/merlab/uthira/Envs/AVRL/bin/activate
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ rosrun active_vision trainedPolicyServiceIL.py GASD Train_set_large_GASD
+2024-04-24 22:55:48.198634: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-04-24 22:55:48.239074: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Feature Type  GASD
+Loading  Train_set_large_GASD
+/home/merlab/uthira/Envs/AVRL/lib/python3.8/site-packages/gym/spaces/box.py:73: UserWarning: [33mWARN: Box bound precision lowered by casting to float16[0m
+  logger.warn(
+Starting loading
+Done loading!
+[INFO] [1714013751.499312]:  policy service ready.
+^Csleep 1
+exit
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ sleep 1
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ exit
+exit
+[01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ source /home/merlab/uthira/Envs/AVRL/bin/activate
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ rosrun active_vision trainedPolicyServiceIL.py GASD Train_set_large_GASD
+2024-04-24 22:57:38.660828: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-04-24 22:57:38.696388: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Feature Type  GASD
+Loading  Train_set_large_GASD
+/home/merlab/uthira/Envs/AVRL/lib/python3.8/site-packages/gym/spaces/box.py:73: UserWarning: [33mWARN: Box bound precision lowered by casting to float16[0m
+  logger.warn(
+Starting loading
+Done loading!
+[INFO] [1714013861.660205]:  policy service ready.
+^Csleep 1
+exit
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ sleep 1
+(AVRL) [01;32mmerlab@OMEN[00m:[01;34m~/uthira/mer_lab[00m$ exit
+exit
