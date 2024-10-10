@@ -1,6 +1,4 @@
 # Manipulation and Environmental Robotics Lab (mer_lab)
-
-## Objective
 This project provides a framework for manipulation and robotic vision tasks, focusing on active perception and imitation learning. It is designed to train and test reinforcement learning (RL) models on both simulated and real-world robotic platforms like the Franka Emika Panda.
 
 ---
